@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     bool isJumping = true;
     bool isGrounded = false;
     bool gravityIsReversed = false;
+    bool canDoubleJump = false;
     // ----------
 
     private void Start() {
@@ -40,9 +41,11 @@ public class Player : MonoBehaviour
         bool _isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         if (isGrounded && !_isGrounded) {
             // NOT GROUNDED
+            canDoubleJump = true;
         }
         else if (!isGrounded && _isGrounded) {
             // JUST LANDED
+            canDoubleJump = false;
         }
         isGrounded = _isGrounded;
 
@@ -67,7 +70,7 @@ public class Player : MonoBehaviour
     }
 
     public void Jump(InputAction.CallbackContext context) {
-        if (context.started && coyoteTimeCounter > 0) {
+        if (context.started && (coyoteTimeCounter > 0 || canDoubleJump)) {
             isJumping = true;
             jumpTimeCounter = jumpTime;
         }
