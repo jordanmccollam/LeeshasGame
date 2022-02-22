@@ -458,7 +458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.0988846, y: -0.79272604, z: -24.672262}
+  m_LocalPosition: {x: -7.0991545, y: -0.79272604, z: -24.672262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -775,7 +775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013180667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.0988846, y: -0.79272604, z: -24.672262}
+  m_LocalPosition: {x: -7.0991545, y: -0.79272604, z: -24.672262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1249333063}
@@ -1290,6 +1290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5742341132406951565, guid: 2e7dce6ce6cce4e53ae554a5e594b3a9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5742341132406951601, guid: 2e7dce6ce6cce4e53ae554a5e594b3a9, type: 3}
       propertyPath: m_RootOrder
       value: 3
