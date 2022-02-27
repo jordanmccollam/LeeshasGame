@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [Header("Color")]
+    public int chosenColor;
+    public Color color1;
+    public Color color2;
+    public SpriteRenderer[] partsToColor;
+
     [Header("Stats")]
     public float speed;
 
@@ -31,6 +37,29 @@ public class Player : MonoBehaviour
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+
+        SetColor();
+    }
+
+    void SetColor() {
+        Color _color = color1;
+        switch (chosenColor)
+        {
+            case 1:
+                _color = color1;
+                break;
+            case 2:
+                _color = color2;
+                break;
+            default:
+                break;
+        }
+        
+
+        foreach (var part in partsToColor)
+        {
+            part.color = _color;
+        }
     }
 
     private void FixedUpdate() {
