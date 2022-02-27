@@ -560,9 +560,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d109921fec0e446289675d0d5919f3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenColor: 1
-  color1: {r: 0.16862746, g: 0.98823535, b: 0.54901963, a: 1}
-  color2: {r: 0, g: 0, b: 0, a: 0}
+  chosenColor: 0
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.16862746, g: 0.98823535, b: 0.54901963, a: 1}
   partsToColor:
   - {fileID: 3231771914632947905}
   - {fileID: 3231771916132246955}
@@ -575,7 +576,7 @@ MonoBehaviour:
   - {fileID: 3231771915213115129}
   - {fileID: 3231771915099451123}
   speed: 10
-  jumpForce: 18
+  jumpForce: 12
   jumpTime: 0.15
   groundCheck: {fileID: 3231771916168812541}
   whatIsGround:
@@ -676,7 +677,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 20
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: c652372466f8540138ddca04dd52275e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

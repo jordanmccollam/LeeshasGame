@@ -7,8 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Color")]
     public int chosenColor;
-    public Color color1;
-    public Color color2;
+    public Color[] colors;
     public SpriteRenderer[] partsToColor;
 
     [Header("Stats")]
@@ -42,23 +41,9 @@ public class Player : MonoBehaviour
     }
 
     void SetColor() {
-        Color _color = color1;
-        switch (chosenColor)
-        {
-            case 1:
-                _color = color1;
-                break;
-            case 2:
-                _color = color2;
-                break;
-            default:
-                break;
-        }
-        
-
         foreach (var part in partsToColor)
         {
-            part.color = _color;
+            part.color = colors[chosenColor];
         }
     }
 
@@ -94,12 +79,16 @@ public class Player : MonoBehaviour
             } else {
                 // When jump time runs out, stop going higher
                 isJumping = false;
+                coyoteTimeCounter = 0;
             }
         }
     }
 
     public void Jump(InputAction.CallbackContext context) {
         if (context.started && (coyoteTimeCounter > 0 || canDoubleJump)) {
+            if (!isGrounded) {
+                canDoubleJump = false;
+            }
             isJumping = true;
             jumpTimeCounter = jumpTime;
         }
@@ -114,7 +103,7 @@ public class Player : MonoBehaviour
         if (context.started) {
             gravityIsReversed = !gravityIsReversed;
             rb.gravityScale *= -1;
-            transform.Rotate(0, 0, 180);
+            transform.Rotate(0, 180, 180);
         }
     }
 }
