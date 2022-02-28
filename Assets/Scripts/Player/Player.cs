@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     // Components ---
     Rigidbody2D rb;
+    Animator anim;
     // --------------
 
     // Checks ---
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         SetColor();
     }
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour
         else if (!isGrounded && _isGrounded) {
             // JUST LANDED
             canDoubleJump = false;
+            anim.SetBool("isJumping", false);
         }
         isGrounded = _isGrounded;
 
@@ -91,6 +94,7 @@ public class Player : MonoBehaviour
             }
             isJumping = true;
             jumpTimeCounter = jumpTime;
+            anim.SetBool("isJumping", true);
         }
 
         if (context.canceled) { // If button released, stop jumping
